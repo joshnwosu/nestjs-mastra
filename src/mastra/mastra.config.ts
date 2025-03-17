@@ -1,16 +1,16 @@
 import { Mastra, Agent } from '@mastra/core';
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 
-// Step 1: Create the agent using the Agent class
-export const exampleAgent = new Agent({
-  name: 'Example Agent',
-  instructions: 'You are a helpful assistant powered by OpenAI.',
-  model: openai('gpt-4o-mini'),
-});
+export function createMastra() {
+  const exampleAgent = new Agent({
+    name: 'Example Agent',
+    instructions: 'You are a helpful assistant powered by Google Gemini.',
+    model: google('models/gemini-1.5-flash'),
+  });
 
-// Step 2: Register the agent with Mastra
-export const mastra = new Mastra({
-  agents: {
-    exampleAgent, // Pass the instantiated agent, not a plain object
-  },
-});
+  return new Mastra({
+    agents: {
+      exampleAgent,
+    },
+  });
+}
