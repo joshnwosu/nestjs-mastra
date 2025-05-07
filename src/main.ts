@@ -10,6 +10,6 @@ async function bootstrap() {
   process.env.GOOGLE_GENERATIVE_AI_API_KEY =
     configService.get<string>('GEMINI_API_KEY');
 
-  await app.listen(3000);
+  await app.listen(3005);
 }
 bootstrap();
